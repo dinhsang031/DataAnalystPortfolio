@@ -1,0 +1,49 @@
+# DataAnalystProfolio
+# R programing
+#Load the packages
+
+install.packages("tidyverse")
+install.packages("skimr")
+install.packages("janitor")
+library("tidyverse")
+library("skimr")
+library("janitor")
+
+#Import data
+
+bookings_df <- read_csv("hotel_bookings.csv")
+
+#Know the data
+
+head(bookings_df)
+str(bookings_df)
+skim_without_charts(bookings_df)
+skim(bookings_df)
+
+#Cleaning data
+
+  #Select data
+  trimmed_df <- bookings_df %>% 
+    select(hotel,is_canceled,lead_time)
+
+  #Change the name
+  trimmed_df <- bookings_df %>% 
+    select(hotel,is_canceled,lead_time) %>% 
+    rename(hoteltype = hotel)
+    
+  #Split or combine data in # columns
+  example_df <- bookings_df %>% 
+    select(arrival_date_year, arrival_date_month) %>% 
+    unite(arrival_date_year, c("arrival_date_month","arrival_date_year"), sep= " ")
+
+#Manupulating in dataset
+  
+  #sum some columns
+  total_amount <-bookings_df %>% 
+    mutate(guests = adults + children + babies)
+
+  #calculating 
+  example_df <- bookings_df %>% 
+    summarize(number_cancled = sum(is_canceled), average_lead_time = mean(lead_time))
+  head(example_df)
+  
