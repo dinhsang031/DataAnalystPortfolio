@@ -36,14 +36,15 @@ skim(bookings_df)
     select(arrival_date_year, arrival_date_month) %>% 
     unite(arrival_date_year, c("arrival_date_month","arrival_date_year"), sep= " ")
 
-#Manupulating in dataset
+#Manipulating in dataset
   
   #sum some columns
   total_amount <-bookings_df %>% 
     mutate(guests = adults + children + babies)
 
-  #calculating 
+  #calculating the amount of canceled time and average of lead time
   example_df <- bookings_df %>% 
     summarize(number_cancled = sum(is_canceled), average_lead_time = mean(lead_time))
+  #check the results
   head(example_df)
   
