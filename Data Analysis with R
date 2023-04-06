@@ -48,3 +48,86 @@ skim(bookings_df)
   #check the results
   head(example_df)
   
+  install.packages("tidyverse")
+install.packages("ggplot2")
+install.packages("palmerpenguins")
+library(tidyverse)
+library(ggplot2)
+library(palmerpenguins)
+ggplot(data=penguins) + geom_point(mapping=aes(x=bill_length_mm,y=bill_depth_mm))
+
+#geom_point with many aes
+ggplot(data=penguins) + geom_point(mapping=aes(x=flipper_length_mm,y=body_mass_g,shape=species,color=species,size=species,alpha=specie))
+
+#with color
+ggplot(data=penguins) + geom_point(mapping=aes(x=flipper_length_mm,y=body_mass_g),color='purple')
+
+#geom_smooth
+ggplot(data=penguins) + geom_smooth(mapping=aes(x=flipper_length_mm,y=body_mass_g))
+
+#geom_smooth + point
+ggplot(data=penguins) +
+  geom_smooth(mapping=aes(x=flipper_length_mm,y=body_mass_g))+
+  geom_point(mapping=aes(flipper_length_mm,y=body_mass_g))
+
+#geom_smooth + linetype
+ggplot(data=penguins) + geom_smooth(mapping=aes(x=flipper_length_mm,y=body_mass_g,linetype=species))
+
+#geom_bar + color
+ggplot(data=penguins) +
+  geom_bar(mapping=aes(species,fill=species))
+#geom_bar + color in the bar
+ggplot(data=penguins) +
+  geom_bar(mapping=aes(species,fill=island))
+
+#ggplot fast formular point with line(smooth)
+ggplot(penguins, aes(flipper_length_mm,body_mass_g)) +
+  geom_point()+
+  geom_smooth()
+
+# facet_wrap phan biet 1 category nhieu bien
+ggplot(data=penguins) + 
+  geom_point(mapping=aes(x=bill_length_mm,y=bill_depth_mm,color=species)) +
+  facet_wrap(~species)
+
+# facet_grid phan biet nhieu category nhieu bien
+ggplot(data=penguins) + 
+  geom_point(mapping=aes(x=bill_length_mm,y=bill_depth_mm,color=species)) +
+  facet_grid(sex~species)
+
+#filtering data for plotting
+penguins %>% 
+  filter(species == 'Adelie') %>% 
+  ggplot(aes(x=bill_length_mm,y=species,colour=species)) +
+  geom_point()
+
+#label function with title
+ggplot(data=penguins) + 
+  geom_point(mapping=aes(x=flipper_length_mm,y=body_mass_g,color=species)) +
+  labs(title="Palmer Penguins: Body Mass vs. Flipper Lenght")
+
+#label function with title and subtitle & caption
+ggplot(data=penguins) + 
+  geom_point(mapping=aes(x=flipper_length_mm,y=body_mass_g,color=species)) +
+  labs(title="Palmer Penguins: Body Mass vs. Flipper Lenght",subtitle = "Sample of Three Penguins Species",
+  caption = "Data collected by Dr.Ken")
+
+#label function with title and subtitle & caption + annotate the the text
+ggplot(data=penguins) + 
+  geom_point(mapping=aes(x=flipper_length_mm,y=body_mass_g,color=species)) +
+  labs(title="Palmer Penguins: Body Mass vs. Flipper Lenght",subtitle = "Sample of Three Penguins Species",
+       caption = "Data collected by Dr.Ken")+
+  annotate("text",x=220,y=3500,label="The Gentoos are the largest",color="purple",
+           fontface='bold',size=3,angle=25)
+
+#alias to plot and save function
+p <- ggplot(penguins, aes(flipper_length_mm,body_mass_g)) + 
+  geom_point() +
+  labs(title="Palmer Penguins: Body Mass vs. Flipper Lenght",subtitle = "Sample of Three Penguins Species",
+       caption = "Data collected by Dr.Ken")
+p + annotate("text",x=220,y=3500,label="The Gentoos are the largest",color="purple",
+               fontface='bold',size=3,angle=25)+
+  geom_smooth()
+ggsave("Three Penguin.png")
+
+
