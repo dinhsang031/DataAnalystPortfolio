@@ -32,7 +32,7 @@ Hello, I'm Nguyen Dinh Sang, and this is my Data Analyst portfolio. I am current
 2. **Project 2: SQL Database Management**
    - Link to GitHub Repository: [Project 2 GitHub Repo]([Link-to-Project-2-Repo](https://github.com/dinhsang031/DataAnalystPortfolio/blob/main/SQL-Update%20Database-Cleaning%20Data))
 
-3. **Others Project using R, Python**
+3. **Others Project using R, Python, Excel**
 
 
 ## Contact
