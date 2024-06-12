@@ -7,6 +7,7 @@ Hello, I'm Nguyen Dinh Sang, and this is my Data Analyst portfolio. I am current
 ## About Me
 
 - **Name:** Nguyen Dinh Sang
+- **Location:** Ho Chi Minh city, Vietnam
 - **LinkedIn:** [Link to LinkedIn Profile](https://www.linkedin.com/in/sang-nguyen-dinh-234790231/)
 - **GitHub:** [Link to GitHub Profile](https://github.com/dinhsang031/DataAnalystPortfolio)
 - **Email:** dinhsang031@gmail.com
