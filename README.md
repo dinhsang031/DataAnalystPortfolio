@@ -2,7 +2,7 @@
 
 ## Introduction
 
-Hello, I'm Nguyen Dinh Sang, and this is my Data Analyst portfolio. I am currently on a journey of learning and self-improvement in the field of Data Analysis. This portfolio showcases some of my work, including sample dashboards I have designed and various projects I have worked on using Power BI, SQL, Excel, Python and R.
+Hello, I'm Nguyen Dinh Sang, and this is my Data Analyst portfolio. I am currently working on Data Analytic, and passion journey of learning and self-improvement in the field as also. This portfolio showcases some of my work, including dashboards I have designed and various projects I have worked on using Power BI, SQL, Excel, Python and R.
 
 ## About Me
 
